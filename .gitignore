@@ -1,0 +1,21 @@
+# CV — no se publica por ahora (contiene datos sensibles, pendiente de revisar)
+cv-juan-ramon-paez-quiros.pdf
+*.cv.pdf
+
+# Másters de diseño / fuentes de assets — no se publican
+_src/
+
+# Configuración local de Claude Code — no forma parte del sitio
+.claude/
+
+# Dependencias y artefactos (por si en el futuro hay build)
+node_modules/
+dist/
+.cache/
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

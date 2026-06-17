@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#16465F"/>
+  <rect x="2" y="2" width="28" height="28" fill="#FFFDF7"/>
+  <rect x="4" y="4" width="24" height="24" fill="#1F5B7A"/>
+  <text x="16" y="17" fill="#FFFDF7" font-family="Fraunces, Georgia, 'Times New Roman', serif"
+        font-weight="700" font-size="15" text-anchor="middle" dominant-baseline="central">JR</text>
+</svg>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Ramón Páez · Desarrollador backend junior · Sevilla</title>
+  <meta name="description" content="Portfolio de Juan Ramón Páez, desarrollador backend junior de la sierra de Sevilla. DAM 2025, IA aplicada, Java, Python y SQL.">
+
+  <link rel="canonical" href="https://jrpaez.dev/">
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Telegram, Facebook, Slack, Discord…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Juan Ramón Páez">
+  <meta property="og:title" content="Juan Ramón Páez · Desarrollador backend junior · Sevilla">
+  <meta property="og:description" content="Desarrollador backend junior de la sierra de Sevilla. DAM 2025, IA aplicada, Java, Python y SQL.">
+  <meta property="og:url" content="https://jrpaez.dev/">
+  <meta property="og:image" content="https://jrpaez.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Juan Ramón Páez — Desarrollador backend, Sevilla">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Juan Ramón Páez · Desarrollador backend junior · Sevilla">
+  <meta name="twitter:description" content="Desarrollador backend junior de la sierra de Sevilla. DAM 2025, IA aplicada, Java, Python y SQL.">
+  <meta name="twitter:image" content="https://jrpaez.dev/og-image.png">
+
+  <meta name="theme-color" content="#1F5B7A">
+
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tema inicial sin parpadeo: respeta la elección guardada y, si no hay, modo claro por defecto -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('tema');
+      document.documentElement.dataset.theme = stored || 'dia';
+    })();
+  </script>
+
+  <!-- Datos estructurados para buscadores -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Juan Ramón Páez",
+    "url": "https://jrpaez.dev/",
+    "image": "https://jrpaez.dev/og-image.png",
+    "jobTitle": "Desarrollador backend junior",
+    "description": "Desarrollador backend junior de la sierra de Sevilla. DAM 2025, IA aplicada, Java, Python y SQL.",
+    "email": "mailto:juanramon332@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sevilla",
+      "addressCountry": "ES"
+    },
+    "knowsLanguage": ["es", "en"],
+    "sameAs": [
+      "https://github.com/JuanR33",
+      "https://www.linkedin.com/in/juanr-paez/"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#portada">Saltar al contenido</a>
+
+  <!-- ════════ NAV ════════ -->
+  <header class="nav">
+    <a class="nav__logo" href="#portada" aria-label="Volver a la portada">
+      <span class="nav__tile">JR</span>
+      <span class="nav__name">Juan Ramón Páez</span>
+    </a>
+    <nav class="nav__links" aria-label="Atajos">
+      <a href="#obra">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav__theme" id="themeToggle" aria-label="Cambiar entre modo día y modo noche">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <!-- ════════ EL MOSAICO DE FONDO (se dibuja, gira y se desplaza con el scroll) ════════ -->
+  <div class="mosaic-field" aria-hidden="true">
+    <div class="mosaic-core">
+      <svg id="mosaicoSvg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="leaves" id="leaves"></div>
+  </div>
+
+  <!-- Claro circular con blur del finale: el círculo más pequeño del mosaico
+       lo bordea cuando el mandala se acerca y gira -->
+  <div class="finale-clearing" aria-hidden="true"></div>
+
+  <!-- ════════ RAÍL DE NAVEGACIÓN (una tesela por sección) ════════ -->
+  <nav class="rail" id="rail" aria-label="Secciones"></nav>
+
+  <main>
+
+    <!-- I · PORTADA -->
+    <section class="panel panel--center" id="portada" data-index="0">
+      <div class="card card--hero">
+        <p class="kicker reveal" id="heroKicker"></p>
+        <h1 class="hero__title reveal">
+          <span class="hero__hola">Hola, soy</span>
+          <span class="hero__name" id="heroName"></span>
+        </h1>
+        <p class="hero__phrase reveal">
+          Hago que las cosas funcionen por dentro:<br>
+          <span class="hero__rotating" aria-hidden="true"><em id="rotatingWord"></em><span class="hero__caret"></span></span>
+        </p>
+        <p class="hero__intro reveal" id="heroIntro"></p>
+        <div class="hero__actions reveal">
+          <a href="#obra" class="btn btn--primary">Ver mis proyectos</a>
+          <a href="#contacto" class="btn btn--ghost">Escríbeme</a>
+        </div>
+        <p class="hero__available reveal"><span class="dot" aria-hidden="true"></span><span id="heroAvailableText"></span></p>
+        <p class="hero__hint reveal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        </p>
+      </div>
+    </section>
+
+    <!-- II · RAÍCES -->
+    <section class="panel" id="raices" data-index="1">
+      <div class="card">
+        <div class="plaque reveal" role="heading" aria-level="2"><span class="plaque__num">II</span> Raíces</div>
+        <div class="about-grid">
+          <div class="about-portrait reveal">
+            <div class="arch">
+              <picture>
+                <source srcset="assets/img/avatar.webp" type="image/webp">
+                <img src="assets/img/avatar.png" alt="Ilustración de Juan Ramón Páez" width="320" height="388" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="arch__caption">Desarrollador backend, desde Sevilla</p>
+          </div>
+          <div>
+            <div id="aboutText"></div>
+            <div class="facts reveal" id="facts"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- III · CAMINO -->
+    <section class="panel" id="camino" data-index="2">
+      <div class="card">
+        <div class="plaque reveal" role="heading" aria-level="2"><span class="plaque__num">III</span> Camino</div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- IV · OFICIO -->
+    <section class="panel" id="oficio" data-index="3">
+      <div class="card card--wide">
+        <div class="plaque reveal" role="heading" aria-level="2"><span class="plaque__num">IV</span> Oficio</div>
+        <p class="section__note reveal">Sin barras de porcentajes inventados. Esto es lo que toco, agrupado por áreas.</p>
+        <div class="skills" id="skills"></div>
+      </div>
+    </section>
+
+    <!-- V · OBRA -->
+    <section class="panel" id="obra" data-index="4">
+      <div class="card card--wide">
+        <div class="plaque reveal" role="heading" aria-level="2"><span class="plaque__num">V</span> Obra</div>
+        <div class="filters reveal" id="projectFilters" role="group" aria-label="Filtrar proyectos por categoría"></div>
+        <div class="projects" id="projects"></div>
+        <div class="certs" id="certs" hidden></div>
+      </div>
+    </section>
+
+    <!-- VI · EN EL TAJO -->
+    <section class="panel" id="tajo" data-index="5">
+      <div class="card">
+        <div class="plaque reveal" role="heading" aria-level="2"><span class="plaque__num">VI</span> En el tajo</div>
+        <p class="section__note reveal">Lo que estoy aprendiendo ahora mismo, con su progreso de verdad.</p>
+        <div class="learning-grid" id="learningList"></div>
+      </div>
+    </section>
+
+    <!-- VII · CONTACTO -->
+    <section class="panel panel--center" id="contacto" data-index="6">
+      <div class="card card--contact reveal">
+        <h2 class="contact__heading" id="contactHeading"></h2>
+        <p class="contact__text" id="contactText"></p>
+        <button class="contact__mail" id="contactMail" type="button" aria-label="Copiar mi correo al portapapeles"></button>
+        <div class="contact__links" id="contactLinks"></div>
+        <div class="contact__footer">
+          <svg class="branch-divider" viewBox="0 0 120 24" width="120" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 12 Q 60 6 116 12"/>
+            <path d="M30 12 q -4 -8 -10 -9 q 8 -1 10 9z" fill="currentColor" stroke="none"/>
+            <path d="M55 10 q -3 -8 -9 -10 q 8 0 9 10z" fill="currentColor" stroke="none"/>
+            <path d="M80 10 q 3 -8 9 -10 q -8 0 -9 10z" fill="currentColor" stroke="none"/>
+            <circle cx="42" cy="14" r="3" fill="currentColor" stroke="none"/>
+            <circle cx="92" cy="13" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+          <p id="footerLine"></p>
+          <p class="contact__small" id="footerYear"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

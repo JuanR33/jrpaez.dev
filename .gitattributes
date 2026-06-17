@@ -1,0 +1,8 @@
+# Normaliza finales de línea: LF en el repositorio, sea cual sea el SO
+* text=auto eol=lf
+
+# Binarios — Git no debe tocarlos
+*.png   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary

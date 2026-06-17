@@ -1,0 +1,15 @@
+{
+  "name": "Juan Ramón Páez · Desarrollador backend",
+  "short_name": "JR Páez",
+  "description": "Portfolio de Juan Ramón Páez Quirós, desarrollador backend junior de la sierra de Sevilla.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#1F5B7A",
+  "background_color": "#FAF3E7",
+  "icons": [
+    { "src": "/icons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
