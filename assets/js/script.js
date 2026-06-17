@@ -95,14 +95,7 @@ function renderAll() {
   /* Portada */
   $('#heroKicker').textContent = DATA.hero.kicker;
   $('#heroName').innerHTML = `${p.firstName}<br><span class="apellido">${p.lastName}</span>`;
-  /* Intro: versión compacta en móvil para que el hero entre de un vistazo */
-  const introMq = window.matchMedia('(max-width: 720px)');
-  const setIntro = () => {
-    const txt = introMq.matches && DATA.hero.introMobile ? DATA.hero.introMobile : DATA.hero.intro;
-    $('#heroIntro').textContent = clean(txt);
-  };
-  setIntro();
-  introMq.addEventListener('change', setIntro);
+  $('#heroIntro').textContent = clean(DATA.hero.intro);
   $('#heroAvailableText').textContent = DATA.hero.available;
 
   /* Raíces */
@@ -540,29 +533,11 @@ function setupTheme() {
   });
 }
 
-function setupHeroNav() {
-  /* En móvil el nav estorba sobre el hero: lo ocultamos mientras estás arriba
-     del todo (portada) y lo deslizamos al empezar a scrollear. En pantallas
-     grandes el nav siempre está visible. Funciona con scroll nativo y con el
-     scroll suave de Lenis (que mueve el scroll real de la ventana). */
-  const nav = document.querySelector('.nav');
-  const mq = window.matchMedia('(max-width: 720px)');
-  const THRESHOLD = 40;
-  const getY = () => window.scrollY || document.documentElement.scrollTop || 0;
-  const update = () => {
-    nav.classList.toggle('is-hidden', mq.matches && getY() < THRESHOLD);
-  };
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-  mq.addEventListener('change', update);
-}
-
 /* ════════ INIT ════════ */
 const mosaico = buildMosaico();
 buildLeaves();
 renderAll();
 buildRail();
 setupTheme();
-setupHeroNav();
 startRotatingWords();
 setupScrollStory(mosaico);

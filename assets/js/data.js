@@ -35,12 +35,6 @@ const DATA = {
             motor que mantiene una aplicación en marcha. Titulado en DAM en 2025, con
             un año de prácticas desarrollando aplicaciones con IA integrada.`,
 
-    // Versión compacta para móvil (el hero debe entrar de un vistazo): se omite la
-    // frase del pueblo/olivos y se conserva lo profesional.
-    introMobile: `Me dedico al backend: el motor que mantiene una aplicación en marcha.
-            Titulado en DAM en 2025, con un año de prácticas desarrollando aplicaciones
-            con IA integrada.`,
-
     available: 'Disponible para trabajar · incorporación inmediata',
   },
 

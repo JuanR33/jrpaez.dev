@@ -44,10 +44,7 @@
 /* ── Base ─────────────────────────────────────────────── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* overflow-x en html además de en body: el contenedor de scroll real es html,
-   así que sin esto algún elemento que sobresale unos px (rombos del raíl,
-   paneles del scroll-story con transform) deja arrastrar la página de lado. */
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--sans);
@@ -616,25 +613,4 @@ a { color: var(--azulejo); }
   .rail a { width: 11px; height: 11px; }
   .card { padding: 1.4rem 1.2rem; }
   .facts { grid-template-columns: repeat(3, 1fr); }
-
-  /* Nav oculto sobre el hero y deslizándose al scrollear (lo controla
-     setupHeroNav en JS). En escritorio siempre visible. */
-  .nav { transition: transform .35s ease, background-color .45s ease; }
-  .nav.is-hidden { transform: translateY(-100%); }
-
-  /* El hero es la única sección pensada para verse de un vistazo. En móvil el
-     recuadro se centraba en un panel más alto que la pantalla y su mitad
-     inferior quedaba cortada bajo el pliegue. Lo alineamos arriba y compactamos
-     el contenido para que entre completo. Como el nav va oculto aquí, no hace
-     falta reservar su altura arriba. */
-  #portada {
-    align-items: flex-start;
-    padding-top: 1.5rem;
-    padding-bottom: 1.4rem;
-  }
-  .card--hero { padding: 1.3rem 1.2rem; }
-  .hero__title { margin-bottom: .6rem; }
-  .hero__phrase { margin-bottom: .7rem; }
-  .hero__intro { margin-bottom: .8rem; font-size: .96rem; }
-  .hero__actions { margin-bottom: .8rem; }
 }
