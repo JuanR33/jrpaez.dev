@@ -57,6 +57,11 @@ body {
   overflow-x: hidden;
 }
 
+/* El scroll horizontal del móvil lo gobierna <html>, no <body>; además
+   .mosaic-field es position:fixed y escapa al overflow del body. Recortamos
+   también en la raíz para que nada genere barra horizontal en móvil. */
+html { overflow-x: hidden; }
+
 ::selection { background: var(--mustard); color: #33261A; }
 img { max-width: 100%; display: block; }
 a { color: var(--azulejo); }
@@ -139,8 +144,8 @@ a { color: var(--azulejo); }
 }
 [data-theme="noche"] .mosaic-core { mix-blend-mode: screen; }
 .mosaic-core svg {
-  width: min(108vmin, 940px);
-  height: min(108vmin, 940px);
+  width: min(108vmin, 100vw, 940px);
+  height: min(108vmin, 100vw, 940px);
   overflow: visible;
 }
 .mosaic-core .trazo {
@@ -296,6 +301,7 @@ a { color: var(--azulejo); }
 }
 @keyframes blink { 50% { opacity: 0; } }
 .hero__intro { margin-bottom: 1.6rem; }
+.hero__intro-short { display: none; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.3rem; }
 
 .btn {
@@ -613,4 +619,29 @@ a { color: var(--azulejo); }
   .rail a { width: 11px; height: 11px; }
   .card { padding: 1.4rem 1.2rem; }
   .facts { grid-template-columns: repeat(3, 1fr); }
+
+  /* En móvil mostramos la intro recortada en lugar de la completa */
+  .hero__intro-full { display: none; }
+  .hero__intro-short { display: inline; }
+
+  /* Nav oculto sobre el hero y deslizándose al scrollear (lo controla
+     setupHeroNav en JS). En escritorio siempre visible. */
+  .nav { transition: transform .35s ease, background-color .45s ease; }
+  .nav.is-hidden { transform: translateY(-100%); }
+
+  /* El hero es la única sección pensada para verse de un vistazo. En móvil el
+     recuadro se centraba en un panel más alto que la pantalla y su mitad
+     inferior (disponibilidad y flecha) quedaba cortada bajo el pliegue. Lo
+     alineamos arriba y compactamos el contenido para que entre completo. Como
+     el nav va oculto aquí, no hace falta reservar su altura arriba. */
+  #portada {
+    padding-top: 1.5rem;
+    padding-bottom: 1.4rem;
+  }
+  .card--hero { padding: 1.3rem 1.2rem; }
+  .hero__title { margin-bottom: .6rem; }
+  .hero__phrase { margin-bottom: .7rem; }
+  .hero__intro { margin-bottom: .8rem; font-size: .96rem; }
+  .hero__actions { margin-bottom: .8rem; }
+  .hero__hint { margin-top: 1rem; }
 }
